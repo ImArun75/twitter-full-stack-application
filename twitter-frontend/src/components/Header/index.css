@@ -1,0 +1,90 @@
+.nav-header {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1110px;
+  padding: 16px 0;
+}
+
+.website-logo {
+  width: 110px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.website-logo:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 8px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #1e293b;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.nav-link li {
+  list-style: none;
+}
+
+.logout-desktop-btn {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #1d9bf0;
+  background-color: transparent;
+  border: 1px solid #1d9bf0;
+  border-radius: 9999px;
+  padding: 8px 20px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.logout-desktop-btn:hover {
+  background-color: #1d9bf0;
+  color: #fff;
+}
+
+.logout-desktop-btn:active {
+  transform: scale(0.98);
+}

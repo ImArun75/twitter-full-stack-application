@@ -1,0 +1,46 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px;
+  background-color: #f1f5f9;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.not-found-heading {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+}
+
+.not-found-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  color: #64748b;
+  margin: 0;
+}
+
+.not-found-container a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #1d9bf0;
+  text-decoration: none;
+  margin-top: 8px;
+}
+
+.not-found-container a:hover {
+  text-decoration: underline;
+}
