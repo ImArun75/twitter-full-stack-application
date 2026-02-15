@@ -31,6 +31,46 @@ const initializeDbAndStartServer = async () => {
       filename: databasePath,
       driver: sqlite3.Database,
     })
+
+    await database.exec(`
+      CREATE TABLE IF NOT EXISTS user (
+        user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        username TEXT,
+        password TEXT,
+        gender TEXT
+      );
+      CREATE TABLE IF NOT EXISTS tweet (
+        tweet_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        tweet TEXT,
+        user_id INTEGER,
+        date_time DATETIME,
+        FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
+      );
+      CREATE TABLE IF NOT EXISTS follower (
+        follower_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        follower_user_id INTEGER,
+        following_user_id INTEGER,
+        FOREIGN KEY (follower_user_id) REFERENCES user(user_id) ON DELETE CASCADE,
+        FOREIGN KEY (following_user_id) REFERENCES user(user_id) ON DELETE CASCADE
+      );
+       CREATE TABLE IF NOT EXISTS reply (
+        reply_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        tweet_id INTEGER,
+        reply TEXT,
+        user_id INTEGER,
+        FOREIGN KEY (tweet_id) REFERENCES tweet(tweet_id) ON DELETE CASCADE,
+        FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
+      );
+      CREATE TABLE IF NOT EXISTS like (
+        like_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        tweet_id INTEGER,
+        user_id INTEGER,
+        FOREIGN KEY (tweet_id) REFERENCES tweet(tweet_id) ON DELETE CASCADE,
+        FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
+      );
+    `)
+
     app.listen(PORT, () => {
       console.log(`Server Running at http://localhost:${PORT}/`)
     })
