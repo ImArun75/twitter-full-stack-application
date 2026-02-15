@@ -4,22 +4,12 @@ const sqlite3 = require('sqlite3')
 const path = require('path')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const cors = require('cors')
 require('dotenv').config()
 
 const app = express()
 app.use(express.json())
-
-// CORS for frontend on different port (including production domains)
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-  // Handle preflight request
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end()
-  }
-  next()
-})
+app.use(cors())
 
 const databasePath = path.join(__dirname, process.env.DB_PATH || 'twitterClone.db')
 const PORT = process.env.PORT || 3000
