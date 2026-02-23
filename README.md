@@ -2,10 +2,6 @@
 
 A fully functional social media application built with React.js and Node.js that mirrors the core features of Twitter. This project demonstrates full-stack development skills including RESTful API design, authentication, state management, and responsive UI.
 
-## 🚀 Live Demo
-*(Add your deployed links here after deployment)*
-- **Frontend**: [Link]
-- **Backend**: [Link]
 
 ## 🛠 Tech Stack
 - **Frontend**: React.js, CSS Modules, React Router, Cookies (js-cookie)
